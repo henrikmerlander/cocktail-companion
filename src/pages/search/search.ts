@@ -30,4 +30,10 @@ export class SearchPage {
       this.searchResults = [];
     }
   }
+
+  goToDrink(drinkId: number) {
+    this.navCtrl.push('DrinkPage', {
+      drinkId: drinkId
+    });
+  }
 }
