@@ -7,7 +7,15 @@
   </ion-navbar>
 </ion-header>
 
+<ion-content>
+  <ion-searchbar (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
 
-<ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let item of searchResults">
+      <ion-thumbnail item-start>
+        <img [src]="item.strDrinkThumb" *ngIf="item.strDrinkThumb">
+      </ion-thumbnail>
+      {{ item.strDrink }}
+    </button>
+  </ion-list>
 </ion-content>
