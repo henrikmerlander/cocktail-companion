@@ -3,7 +3,7 @@
   <ion-navbar>
     <ion-title>{{ drink.strDrink }}</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only><ion-icon name="star-outline"></ion-icon></button>
+      <button (click)=toggleStarred(drink.idDrink) ion-button icon-only><ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 
