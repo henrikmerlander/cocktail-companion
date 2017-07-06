@@ -3,13 +3,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Stars</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <p text-center>
-    Looks like you haven't starred
-    <ion-icon name="star"></ion-icon> any cocktails yet.
-  </p>
+<ion-content>
+  <div padding *ngIf="!stars.length" class="empty-text">
+    <p text-center>
+      Starred drinks will appear here. Looks like you haven't starred
+      <ion-icon name="star"></ion-icon> any cocktails yet.
+    </p>
+  </div>
+
+  <ion-list *ngIf="stars.length">
+    <button (click)="goToDrink(drink.idDrink)" ion-item *ngFor="let drink of stars">
+      <ion-thumbnail item-start>
+        <img [src]="drink.strDrinkThumb" *ngIf="drink.strDrinkThumb">
+      </ion-thumbnail>
+      {{ drink.strDrink }}
+    </button>
+  </ion-list>
 </ion-content>

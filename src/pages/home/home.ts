@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
 @Component({
@@ -8,11 +10,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  stars: any[] = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public drinkProvider: DrinkProvider) { }
+
+  ionViewWillEnter() {
+    this.stars = [];
+    this.storage
+      .get('STARS')
+      .then(res => {
+        res = res || []
+        res.forEach(element => {
+          this.drinkProvider
+            .getDrinkById(element)
+            .subscribe(res => this.stars.push(res.drinks[0]))
+        });
+      })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  goToDrink(drinkId: string) {
+    this.navCtrl.push('DrinkPage', {
+      drinkId: drinkId
+    });
   }
-
 }

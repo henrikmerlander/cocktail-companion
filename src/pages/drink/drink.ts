@@ -22,7 +22,7 @@ export class DrinkPage {
       .get('STARS')
       .then(res => {
         this.stars = res || []
-        if (this.stars.indexOf(this.navParams.get('drinkId')) > 0) this.isStarred = true
+        if (this.stars.indexOf(this.navParams.get('drinkId')) > -1) this.isStarred = true
       })
 
     this.drinkProvider
