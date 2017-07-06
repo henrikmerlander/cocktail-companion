@@ -31,7 +31,7 @@ export class SearchPage {
     }
   }
 
-  goToDrink(drinkId: number) {
+  goToDrink(drinkId: string) {
     this.navCtrl.push('DrinkPage', {
       drinkId: drinkId
     });

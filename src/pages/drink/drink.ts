@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DrinkPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  drink: any = {};
+  drinkIngredients: any[] = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DrinkPage');
-  }
+    this.drinkProvider
+      .getDrinkById(this.navParams.get('drinkId'))
+      .subscribe(res => {
+        this.drink = res.drinks[0]
+        for (var i = 1; i <= 15; i++) {
+          let ingredient = this.drink['strIngredient' + i];
+          if (!ingredient) break;
 
+          this.drinkIngredients.push({
+            name: ingredient,
+            measure: this.drink['strMeasure' + i]
+          })
+        }
+      })
+  }
 }

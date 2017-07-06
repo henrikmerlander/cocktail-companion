@@ -1,11 +1,18 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Drink</ion-title>
+    <ion-title>{{ drink.strDrink }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <img [src]="drink.strDrinkThumb" />
+  <ion-list>
+    <button ion-item *ngFor="let ingredient of drinkIngredients">
+      {{ ingredient.name }}
+      <span item-end>{{ ingredient.measure }}</span>
+    </button>
+  </ion-list>
+  <p padding-left padding-right>{{ drink.strInstructions }}</p>
 </ion-content>
