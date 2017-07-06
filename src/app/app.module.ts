@@ -10,6 +10,7 @@ import { SearchPage } from '../pages/search/search';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SearchProvider } from '../providers/search/search';
+import { DrinkProvider } from '../providers/drink/drink';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SearchProvider } from '../providers/search/search';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SearchProvider
+    SearchProvider,
+    DrinkProvider
   ]
 })
 export class AppModule {}
