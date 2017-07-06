@@ -12,12 +12,11 @@ export class DrinkPage {
   drink: any = {};
   drinkIngredients: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider) { }
 
   ionViewDidLoad() {
     this.drinkProvider
-      .getDrinkById(this.navParams.get('drinkId'))
+      .getDrinkById(this.navParams.get('drinkId') || '12528')
       .subscribe(res => {
         this.drink = res.drinks[0]
         for (var i = 1; i <= 15; i++) {
@@ -30,5 +29,11 @@ export class DrinkPage {
           })
         }
       })
+  }
+
+  goToIngredient(ingredientName) {
+    this.navCtrl.push('IngredientPage', {
+      ingredientName: ingredientName
+    })
   }
 }

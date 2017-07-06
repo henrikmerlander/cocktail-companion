@@ -1,0 +1,12 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ ingredient.strIngredient }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <img src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '.png' }}" />
+  <p>{{ ingredient.strDescription }}</p>
+</ion-content>
