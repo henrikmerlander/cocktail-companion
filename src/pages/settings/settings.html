@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Hide cocktails without an image</ion-label>
+      <ion-toggle [(ngModel)]="hideDrinksWithoutImages" (ionChange)="saveSettings()"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>
