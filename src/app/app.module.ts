@@ -4,8 +4,6 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { SearchPage } from '../pages/search/search';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -17,9 +15,7 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    SearchPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -29,9 +25,7 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    SearchPage
+    MyApp
   ],
   providers: [
     StatusBar,
