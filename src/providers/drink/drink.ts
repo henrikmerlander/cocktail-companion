@@ -13,4 +13,10 @@ export class DrinkProvider {
       .get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkId)
       .map(res => res.json())
   }
+
+  searchByIngredientName(ingredientName: string): Observable<any> {
+    return this.http
+      .get('http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + ingredientName)
+      .map(res => res.json())
+  }
 }

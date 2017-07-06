@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
+import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
 @Component({
@@ -10,13 +11,25 @@ import { IngredientProvider } from '../../providers/ingredient/ingredient';
 export class IngredientPage {
 
   ingredient: any = {};
+  drinks: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ingredientProvider: IngredientProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ingredientProvider: IngredientProvider, public drinkProvider: DrinkProvider) {
   }
 
   ionViewDidLoad() {
     this.ingredientProvider
-      .getIngredientByName(this.navParams.get('ingredientName') || 'Vodka')
-      .subscribe(res => this.ingredient = res.ingredients[0])
+      .getIngredientByName(this.navParams.get('ingredientName'))
+      .subscribe(res => {
+        this.ingredient = res.ingredients[0]
+        this.drinkProvider
+          .searchByIngredientName(this.ingredient.strIngredient)
+          .subscribe(res => this.drinks = res.drinks)
+      })
+  }
+
+  goToDrink(drinkId: string) {
+    this.navCtrl.push('DrinkPage', {
+      drinkId: drinkId
+    });
   }
 }

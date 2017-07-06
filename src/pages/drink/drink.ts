@@ -16,7 +16,7 @@ export class DrinkPage {
 
   ionViewDidLoad() {
     this.drinkProvider
-      .getDrinkById(this.navParams.get('drinkId') || '12528')
+      .getDrinkById(this.navParams.get('drinkId'))
       .subscribe(res => {
         this.drink = res.drinks[0]
         for (var i = 1; i <= 15; i++) {
