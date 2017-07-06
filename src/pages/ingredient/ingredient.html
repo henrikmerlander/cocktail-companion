@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding-top>
-  <img src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '.png' }}" />
+  <img src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Medium.png' }}" />
   <h1 padding-horizontal>Cocktails containing {{ ingredient.strIngredient }}</h1>
   <ion-list>
     <button (click)="goToDrink(drink.idDrink)" ion-item *ngFor="let drink of drinks">
