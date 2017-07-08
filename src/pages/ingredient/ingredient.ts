@@ -26,10 +26,4 @@ export class IngredientPage {
           .subscribe(res => this.drinks = res.drinks)
       })
   }
-
-  goToDrink(drinkId: string) {
-    this.navCtrl.push('DrinkPage', {
-      drinkId: drinkId
-    });
-  }
 }
