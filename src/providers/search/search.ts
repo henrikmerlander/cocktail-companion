@@ -10,13 +10,13 @@ export class SearchProvider {
     console.log('Hello SearchProvider Provider');
   }
 
-  search(query: string):Observable<any> {
+  searchDrinksByName(query: string):Observable<any> {
     return this.http
       .get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + query)
       .map(res => res.json())
   }
 
-  searchIngredientByName(query: string):Observable<any> {
+  searchIngredientsByName(query: string):Observable<any> {
     return this.http
       .get('http://www.thecocktaildb.com/api/json/v1/1/search.php?i=' + query)
       .map(res => res.json())

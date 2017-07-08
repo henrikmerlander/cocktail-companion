@@ -25,12 +25,12 @@ export class SearchPage {
     if (query) {
       if (this.searchMode == 'drink') {
         this.searchProvider
-          .search(query)
+          .searchDrinksByName(query)
           .subscribe(res => this.drinks = res.drinks)
       }
       else {
         this.searchProvider
-          .searchIngredientByName(query)
+          .searchIngredientsByName(query)
           .subscribe(res => this.ingredients = res.ingredients)
       }
     }

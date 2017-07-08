@@ -21,7 +21,7 @@ export class IngredientPage {
       .subscribe(res => {
         this.ingredient = res.ingredients[0]
         this.drinkProvider
-          .searchByIngredientName(this.ingredient.strIngredient)
+          .getDrinksByIngredientName(this.ingredient.strIngredient)
           .subscribe(res => this.drinks = res.drinks)
       })
   }
