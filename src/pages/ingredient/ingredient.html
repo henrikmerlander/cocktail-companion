@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding-top>
-  <img class="main-image" src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Medium.png' }}" />
+  <img *ngIf="ingredient.strIngredient" class="main-image" src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Medium.png' }}" />
   <h1 padding-horizontal>Cocktails containing {{ ingredient.strIngredient }}</h1>
   <drink-list [drinks]="drinks"></drink-list>
 </ion-content>
