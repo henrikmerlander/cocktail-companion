@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SearchPage } from './search';
 import { DrinkListComponentModule } from '../../components/drink-list/drink-list.module';
+import { IngredientListComponentModule } from '../../components/ingredient-list/ingredient-list.module';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { DrinkListComponentModule } from '../../components/drink-list/drink-list
   ],
   imports: [
     DrinkListComponentModule,
+    IngredientListComponentModule,
     IonicPageModule.forChild(SearchPage),
   ],
   exports: [
