@@ -15,4 +15,10 @@ export class SearchProvider {
       .get('http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + query)
       .map(res => res.json())
   }
+
+  searchIngredientByName(query: string):Observable<any> {
+    return this.http
+      .get('http://www.thecocktaildb.com/api/json/v1/1/search.php?i=' + query)
+      .map(res => res.json())
+  }
 }

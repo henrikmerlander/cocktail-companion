@@ -8,6 +8,26 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
-  <drink-list [drinks]="searchResults"></drink-list>
+  <ion-segment [(ngModel)]="searchMode">
+    <ion-segment-button value="drink">
+      Drink
+    </ion-segment-button>
+    <ion-segment-button value="ingredient">
+      Ingredient
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
+  <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
+
+  <drink-list [hidden]="searchMode == 'ingredient'" [drinks]="drinks"></drink-list>
+
+  <ion-list [hidden]="searchMode == 'drink'">
+    <button ion-item *ngFor="let ingredient of ingredients">
+      <ion-thumbnail item-start>
+        <img class="main-image" src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Small.png' }}" />
+      </ion-thumbnail>
+      {{ ingredient.strIngredient }}
+    </button>
+  </ion-list>
 </ion-content>

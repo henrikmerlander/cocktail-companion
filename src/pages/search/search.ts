@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SearchProvider } from '../../providers/search/search';
+import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
 @Component({
@@ -9,10 +10,11 @@ import { SearchProvider } from '../../providers/search/search';
 })
 export class SearchPage {
 
-  searchResults: any[];
+  searchMode: string = 'drink';
+  drinks: any[];
+  ingredients: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public searchProvider: SearchProvider) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public searchProvider: SearchProvider) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
@@ -22,12 +24,16 @@ export class SearchPage {
     var query = event.target.value;
 
     if (query) {
-      this.searchProvider
-        .search(query)
-        .subscribe(res => this.searchResults = res.drinks)
-    }
-    else {
-      this.searchResults = [];
+      if (this.searchMode == 'drink') {
+        this.searchProvider
+          .search(query)
+          .subscribe(res => this.drinks = res.drinks)
+      }
+      else {
+        this.searchProvider
+          .searchIngredientByName(query)
+          .subscribe(res => this.ingredients = res.ingredients)
+      }
     }
   }
 }
