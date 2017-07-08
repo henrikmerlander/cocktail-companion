@@ -12,10 +12,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SearchProvider } from '../providers/search/search';
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    TabsPage
   ],
   providers: [
     StatusBar,
