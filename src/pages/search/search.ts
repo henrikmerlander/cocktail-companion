@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { SearchProvider } from '../../providers/search/search';
-import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
 @Component({
@@ -14,7 +13,7 @@ export class SearchPage {
   drinks: any[];
   ingredients: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public searchProvider: SearchProvider) { }
+  constructor(public searchProvider: SearchProvider) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');

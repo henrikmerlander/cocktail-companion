@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
@@ -12,7 +12,7 @@ export class HomePage {
 
   stars: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public drinkProvider: DrinkProvider) { }
+  constructor(public storage: Storage, public drinkProvider: DrinkProvider) { }
 
   ionViewWillEnter() {
     this.stars = [];

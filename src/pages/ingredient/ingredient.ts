@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
 import { DrinkProvider } from '../../providers/drink/drink';
 
@@ -13,8 +13,7 @@ export class IngredientPage {
   ingredient: any = {};
   drinks: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public ingredientProvider: IngredientProvider, public drinkProvider: DrinkProvider) {
-  }
+  constructor(public navParams: NavParams, public ingredientProvider: IngredientProvider, public drinkProvider: DrinkProvider) { }
 
   ionViewDidLoad() {
     this.ingredientProvider
