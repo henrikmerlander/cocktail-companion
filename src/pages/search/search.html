@@ -9,13 +9,5 @@
 
 <ion-content>
   <ion-searchbar (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
-
-  <ion-list>
-    <button (click)="goToDrink(item.idDrink)" ion-item *ngFor="let item of searchResults">
-      <ion-thumbnail item-start>
-        <img [src]="item.strDrinkThumb" *ngIf="item.strDrinkThumb">
-      </ion-thumbnail>
-      {{ item.strDrink }}
-    </button>
-  </ion-list>
+  <drink-list [drinks]="searchResults"></drink-list>
 </ion-content>
