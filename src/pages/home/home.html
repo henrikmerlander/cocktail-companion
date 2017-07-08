@@ -15,12 +15,5 @@
     </p>
   </div>
 
-  <ion-list *ngIf="stars.length">
-    <button (click)="goToDrink(drink.idDrink)" ion-item *ngFor="let drink of stars">
-      <ion-thumbnail item-start>
-        <img [src]="drink.strDrinkThumb" *ngIf="drink.strDrinkThumb">
-      </ion-thumbnail>
-      {{ drink.strDrink }}
-    </button>
-  </ion-list>
+  <drink-list *ngIf="stars.length" [drinks]="stars"></drink-list>
 </ion-content>

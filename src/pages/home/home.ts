@@ -27,10 +27,4 @@ export class HomePage {
         });
       })
   }
-
-  goToDrink(drinkId: string) {
-    this.navCtrl.push('DrinkPage', {
-      drinkId: drinkId
-    });
-  }
 }
