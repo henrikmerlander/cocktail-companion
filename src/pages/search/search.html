@@ -1,19 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Search</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="searchMode">
+      <ion-segment-button value="drink">
+        Drinks
+      </ion-segment-button>
+      <ion-segment-button value="ingredient">
+        Ingredients
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-segment [(ngModel)]="searchMode">
-    <ion-segment-button value="drink">
-      Drinks
-    </ion-segment-button>
-    <ion-segment-button value="ingredient">
-      Ingredients
-    </ion-segment-button>
-  </ion-segment>
-
   <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
   <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
 
