@@ -19,7 +19,7 @@ export class IngredientPage {
     this.ingredientProvider
       .getIngredientByName(this.navParams.get('ingredientName'))
       .subscribe(res => {
-        this.ingredient = res.ingredients[0]
+        this.ingredient = res
         this.drinkProvider
           .getDrinksByIngredientName(this.ingredient.strIngredient)
           .subscribe(res => this.drinks = res)
