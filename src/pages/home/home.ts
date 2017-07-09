@@ -23,7 +23,7 @@ export class HomePage {
         res.forEach(element => {
           this.drinkProvider
             .getDrinkById(element)
-            .subscribe(res => this.stars.push(res.drinks[0]))
+            .subscribe(res => this.stars.push(res))
         });
       })
   }
