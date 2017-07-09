@@ -26,12 +26,12 @@ export class SearchPage {
       if (this.searchMode == 'drink') {
         this.searchProvider
           .searchDrinksByName(query)
-          .subscribe(res => this.drinks = res.drinks)
+          .subscribe(res => this.drinks = res)
       }
       else {
         this.searchProvider
           .searchIngredientsByName(query)
-          .subscribe(res => this.ingredients = res.ingredients)
+          .subscribe(res => this.ingredients = res)
       }
     }
   }

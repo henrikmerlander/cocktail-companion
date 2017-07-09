@@ -28,7 +28,7 @@ export class DrinkPage {
     this.drinkProvider
       .getDrinkById(this.navParams.get('drinkId'))
       .subscribe(res => {
-        this.drink = res.drinks[0]
+        this.drink = res
         for (var i = 1; i <= 15; i++) {
           let ingredient = this.drink['strIngredient' + i];
           if (!ingredient) break;

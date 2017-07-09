@@ -11,6 +11,6 @@ export class IngredientProvider {
   getIngredientByName(ingredientName: string): Observable<any> {
     return this.http
       .get('http://www.thecocktaildb.com/api/json/v1/1/search.php?i=' + ingredientName)
-      .map(res => res.json())
+      .map(res => res.json().ingredients)
   }
 }

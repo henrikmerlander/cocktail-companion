@@ -22,7 +22,7 @@ export class IngredientPage {
         this.ingredient = res.ingredients[0]
         this.drinkProvider
           .getDrinksByIngredientName(this.ingredient.strIngredient)
-          .subscribe(res => this.drinks = res.drinks)
+          .subscribe(res => this.drinks = res)
       })
   }
 }

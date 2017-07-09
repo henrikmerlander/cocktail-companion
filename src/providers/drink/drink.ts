@@ -11,12 +11,12 @@ export class DrinkProvider {
   getDrinkById(drinkId: string): Observable<any> {
     return this.http
       .get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkId)
-      .map(res => res.json())
+      .map(res => res.json().drinks[0])
   }
 
-  getDrinksByIngredientName(ingredientName: string): Observable<any> {
+  getDrinksByIngredientName(ingredientName: string): Observable<any[]> {
     return this.http
       .get('http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + ingredientName)
-      .map(res => res.json())
+      .map(res => res.json().drinks)
   }
 }
