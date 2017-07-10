@@ -9,11 +9,13 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
+    <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
-  <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
 
   <drink-list [hidden]="searchMode == 'ingredient'" [drinks]="drinks"></drink-list>
   <ingredient-list [hidden]="searchMode == 'drink'" [ingredients]="ingredients"></ingredient-list>
