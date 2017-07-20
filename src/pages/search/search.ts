@@ -15,10 +15,6 @@ export class SearchPage {
 
   constructor(public searchProvider: SearchProvider) { }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
-
   search(event) {
     var query = event.target.value;
 
