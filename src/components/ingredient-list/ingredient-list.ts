@@ -12,9 +12,9 @@ export class IngredientListComponent {
 
   constructor(public navCtrl: NavController) { }
 
-  goToIngredient(ingredientName) {
-    this.navCtrl.push('IngredientPage', {
+  ingredientParams(ingredientName) {
+    return {
       ingredientName: ingredientName
-    })
+    }
   }
 }

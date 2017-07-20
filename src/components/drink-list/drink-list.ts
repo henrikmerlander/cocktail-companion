@@ -12,9 +12,9 @@ export class DrinkListComponent {
 
   constructor(public navCtrl: NavController) { }
 
-  goToDrink(drinkId: string) {
-    this.navCtrl.push('DrinkPage', {
+  drinkParams(drinkId) {
+    return {
       drinkId: drinkId
-    });
+    }
   }
 }

@@ -1,5 +1,5 @@
 <ion-list>
-  <button (click)="goToIngredient(ingredient.strIngredient)" ion-item *ngFor="let ingredient of ingredients">
+  <button navPush="IngredientPage" [navParams]="ingredientParams(ingredient.strIngredient)" ion-item *ngFor="let ingredient of ingredients">
       <ion-thumbnail item-start>
         <img class="main-image" src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Small.png' }}" />
       </ion-thumbnail>
