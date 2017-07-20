@@ -9,6 +9,8 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DeviceMotion } from '@ionic-native/device-motion';
+
 import { SearchProvider } from '../providers/search/search';
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
@@ -33,6 +35,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    DeviceMotion,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SearchProvider,
     DrinkProvider,
