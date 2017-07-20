@@ -7,7 +7,6 @@ export class TabsPage {
 
   tab1Root = 'HomePage';
   tab2Root = 'SearchPage';
-  tab3Root = 'SettingsPage';
 
   constructor() { }
 }
