@@ -57,7 +57,7 @@ export class HomePage {
           deltaY = Math.abs(acc.y - this.lastY);
           deltaZ = Math.abs(acc.z - this.lastZ);
 
-          if (deltaX + deltaY + deltaZ > 7) {
+          if (deltaX + deltaY + deltaZ > 8) {
             this.moveCounter++;
           } else {
             this.moveCounter = Math.max(0, --this.moveCounter);
