@@ -17,6 +17,7 @@ export class HomePage {
   lastY: number;
   lastZ: number;
   moveCounter: number = 0;
+  shakeSubscription: any;
 
   constructor(public navCtrl: NavController, public storage: Storage, public drinkProvider: DrinkProvider, public platform: Platform, public deviceMotion: DeviceMotion) { }
 
@@ -32,11 +33,15 @@ export class HomePage {
             .subscribe(res => this.stars.push(res))
         });
       })
-  }
 
-  ionViewDidLoad() {
     if (this.platform.is('cordova')) {
       this.watchForShake();
+    }
+  }
+
+  ionViewWillLeave() {
+    if (this.platform.is('cordova')) {
+      this.shakeSubscription.unsubscribe();
     }
   }
 
@@ -44,7 +49,7 @@ export class HomePage {
     this.platform
       .ready()
       .then(() => {
-        this.deviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
+        this.shakeSubscription = this.deviceMotion.watchAcceleration({ frequency: 200 }).subscribe(acc => {
           if (!this.lastX) {
             this.lastX = acc.x;
             this.lastY = acc.y;
