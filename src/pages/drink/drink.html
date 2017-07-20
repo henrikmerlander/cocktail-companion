@@ -1,12 +1,10 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>{{ drink.strDrink }}</ion-title>
     <ion-buttons end>
       <button (click)=toggleStarred(drink.idDrink) ion-button icon-only><ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content>
