@@ -19,4 +19,10 @@ export class DrinkProvider {
       .get('http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + ingredientName)
       .map(res => res.json().drinks)
   }
+
+  getRandomDrink() {
+    return this.http
+      .get('http://www.thecocktaildb.com/api/json/v1/1/random.php')
+      .map(res => res.json().drinks[0])
+  }
 }
