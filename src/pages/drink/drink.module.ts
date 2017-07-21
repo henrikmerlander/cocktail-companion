@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { DrinkPage } from './drink';
+import { IonicImageLoader } from 'ionic-image-loader';
 
 @NgModule({
   declarations: [
-    DrinkPage,
+    DrinkPage
   ],
   imports: [
     IonicPageModule.forChild(DrinkPage),
+    IonicImageLoader
   ],
   exports: [
     DrinkPage

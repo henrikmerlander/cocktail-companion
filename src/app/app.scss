@@ -16,6 +16,8 @@
 // automatically applied to the <body> element in the app.
 
 .main-image {
-    display: block;
-    margin: auto;
+    img {
+        display: block;
+        margin: auto;
+    }
 }

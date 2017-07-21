@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { DrinkListComponent } from './drink-list';
+import { IonicImageLoader } from 'ionic-image-loader';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { DrinkListComponent } from './drink-list';
   ],
   imports: [
     IonicModule,
+    IonicImageLoader
   ],
   exports: [
     DrinkListComponent

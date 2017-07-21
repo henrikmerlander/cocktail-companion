@@ -1,7 +1,7 @@
 <ion-list>
   <button navPush="DrinkPage" [navParams]="drinkParams(drink.idDrink)" ion-item *ngFor="let drink of drinks">
       <ion-thumbnail item-start>
-        <img [src]="drink.strDrinkThumb" *ngIf="drink.strDrinkThumb">
+        <img-loader [src]="drink.strDrinkThumb"></img-loader>
       </ion-thumbnail>
       {{ drink.strDrink }}
     </button>
