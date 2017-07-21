@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <img-loader class="main-image" [src]="drink.strDrinkThumb"></img-loader>
+  <img-loader *ngIf="drink.idDrink" class="main-image" [src]="drink.strDrinkThumb"></img-loader>
   <ion-list>
     <button (click)="goToIngredient(ingredient.name)" ion-item *ngFor="let ingredient of drinkIngredients">
       {{ ingredient.name }}
