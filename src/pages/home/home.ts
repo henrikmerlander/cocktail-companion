@@ -44,6 +44,13 @@ export class HomePage {
     }
   }
 
+  ionViewDidEnter() {
+    this.platform.ready().then(() => {
+      this.platform.pause.subscribe(() => this.shakeSubscription.unsubscribe())
+      this.platform.resume.subscribe(() => this.watchForShake())
+    })
+  }
+
   ionViewWillLeave() {
     if (this.platform.is('cordova')) {
       this.shakeSubscription.unsubscribe();
