@@ -12,6 +12,8 @@ import { DrinkProvider } from '../../providers/drink/drink';
 export class HomePage {
 
   stars: any[] = [];
+  numberOfStars: number = 0;
+  starsLoaded: boolean = false;
 
   lastX: number;
   lastY: number;
@@ -27,6 +29,9 @@ export class HomePage {
       .get('STARS')
       .then(res => {
         res = res || []
+        this.starsLoaded = true;
+        this.numberOfStars = res.length;
+
         res.forEach(element => {
           this.drinkProvider
             .getDrinkById(element)
