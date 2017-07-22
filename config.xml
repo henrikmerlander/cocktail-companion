@@ -84,4 +84,5 @@
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="cordova-plugin-file" spec="~4.3.3" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
+    <plugin name="cordova-plugin-apprate" spec="~1.3.0" />
 </widget>

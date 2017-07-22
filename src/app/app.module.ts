@@ -10,6 +10,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
 
 import { SearchProvider } from '../providers/search/search';
@@ -37,6 +38,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    AppRate,
     DeviceMotion,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SearchProvider,

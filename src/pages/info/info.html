@@ -11,4 +11,6 @@
   <p>Press an ingredient in a recipe to explore more drinks with that ingredient.</p>
 
   <p>Out of ideas? You can shake your device <ion-icon name="phone-portrait"></ion-icon> when on the home page to show a random drink.</p>
+
+  <p *ngIf="isCordova">Are you enjoying the app? Dislike it? I would appreciate your feedback. <a (click)="rateApp()">Leave a review in the store!</a></p>
 </ion-content>
