@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'RxJS';
 import 'rxjs/add/operator/map';
-import { appsettings } from '../../app/appsettings';
 
 @Injectable()
 export class DrinkProvider {
@@ -11,19 +10,19 @@ export class DrinkProvider {
 
   getDrinkById(drinkId: string): Observable<any> {
     return this.http
-      .get('http://www.thecocktaildb.com/api/json/v1/' + appsettings.api_key + '/lookup.php?i=' + drinkId)
+      .get('https://drinks-api.herokuapp.com/api/drinks/lookup?drinkId=' + drinkId)
       .map(res => res.json().drinks[0])
   }
 
   getDrinksByIngredientName(ingredientName: string): Observable<any[]> {
     return this.http
-      .get('http://www.thecocktaildb.com/api/json/v1/' + appsettings.api_key + '/filter.php?i=' + ingredientName)
+      .get('https://drinks-api.herokuapp.com/api/drinks/filter?ingredientName=' + ingredientName)
       .map(res => res.json().drinks)
   }
 
   getRandomDrink() {
     return this.http
-      .get('http://www.thecocktaildb.com/api/json/v1/' + appsettings.api_key + '/random.php')
+      .get('https://drinks-api.herokuapp.com/api/drinks/random')
       .map(res => res.json().drinks[0])
   }
 }
