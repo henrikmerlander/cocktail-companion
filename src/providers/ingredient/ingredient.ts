@@ -13,4 +13,10 @@ export class IngredientProvider {
       .get('https://drinks-api.herokuapp.com/api/ingredients/search?ingredientName=' + ingredientName)
       .map(res => res.json().ingredients[0])
   }
+
+  getIngredientsByName(ingredientName: string): Observable<any[]> {
+    return this.http
+      .get('https://drinks-api.herokuapp.com/api/ingredients/search?ingredientName=' + ingredientName)
+      .map(res => res.json().ingredients)
+  }
 }

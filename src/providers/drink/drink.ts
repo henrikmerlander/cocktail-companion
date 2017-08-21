@@ -20,6 +20,12 @@ export class DrinkProvider {
       .map(res => res.json().drinks)
   }
 
+  getDrinksByName(drinkName: string): Observable<any[]> {
+    return this.http
+      .get('https://drinks-api.herokuapp.com/api/drinks/search?drinkName=' + drinkName)
+      .map(res => res.json().drinks)
+  }
+
   getRandomDrink() {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/random')

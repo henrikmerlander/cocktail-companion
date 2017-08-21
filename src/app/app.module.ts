@@ -13,7 +13,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
 
-import { SearchProvider } from '../providers/search/search';
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -41,7 +40,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     AppRate,
     DeviceMotion,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SearchProvider,
     DrinkProvider,
     IngredientProvider
   ]
