@@ -16,6 +16,9 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="isSearching" class="center">
+    <ion-spinner></ion-spinner>
+  </div>
 
   <drink-list [hidden]="searchMode == 'ingredient'" [drinks]="drinks"></drink-list>
   <ingredient-list [hidden]="searchMode == 'drink'" [ingredients]="ingredients"></ingredient-list>
