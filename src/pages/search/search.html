@@ -20,6 +20,6 @@
     <ion-spinner></ion-spinner>
   </div>
 
-  <drink-list [hidden]="searchMode == 'ingredient'" [drinks]="drinks"></drink-list>
-  <ingredient-list [hidden]="searchMode == 'drink'" [ingredients]="ingredients"></ingredient-list>
+  <drink-list [hidden]="isSearching || searchMode == 'ingredient'" [drinks]="drinks"></drink-list>
+  <ingredient-list [hidden]="isSearching || searchMode == 'drink'" [ingredients]="ingredients"></ingredient-list>
 </ion-content>
