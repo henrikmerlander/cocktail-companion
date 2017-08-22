@@ -12,6 +12,9 @@
       You can shake your device to show a random drink!
     </p>
   </div>
-
+  <div *ngIf="starsLoaded && !stars.length" class="center">
+    <ion-spinner></ion-spinner>
+  </div>
+  
   <drink-list *ngIf="stars.length" [drinks]="stars"></drink-list>
 </ion-content>

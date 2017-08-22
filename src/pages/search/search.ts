@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
 
@@ -15,7 +15,7 @@ export class SearchPage {
   ingredients: any[];
   isSearching: boolean = false;
 
-  constructor(public drinkProvider: DrinkProvider, public ingredientProvider: IngredientProvider, public loadingCtrl: LoadingController) { }
+  constructor(public drinkProvider: DrinkProvider, public ingredientProvider: IngredientProvider) { }
 
   search(event) {
     var query = event.target.value;
