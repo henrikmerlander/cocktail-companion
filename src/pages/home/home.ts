@@ -93,6 +93,7 @@ export class HomePage {
   }
 
   navigateToRandomDrink() {
+    this.shakeSubscription.unsubscribe();
     this.drinkProvider
       .getRandomDrink()
       .subscribe(res => {
