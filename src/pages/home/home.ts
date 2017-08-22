@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { DeviceMotion } from '@ionic-native/device-motion';
-import { IonicPage, NavController, Platform } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, Platform } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
 
 @IonicPage()
@@ -21,23 +21,32 @@ export class HomePage {
   moveCounter: number = 0;
   shakeSubscription: any;
 
-  constructor(public navCtrl: NavController, public storage: Storage, public drinkProvider: DrinkProvider, public platform: Platform, public deviceMotion: DeviceMotion) { }
+  constructor(public navCtrl: NavController, public storage: Storage, public drinkProvider: DrinkProvider, public platform: Platform, public deviceMotion: DeviceMotion, public loadingCtrl: LoadingController) { }
 
   ionViewWillEnter() {
-    this.stars = [];
-    this.storage
-      .get('STARS')
-      .then(res => {
-        res = res || []
-        this.starsLoaded = true;
-        this.numberOfStars = res.length;
+    let loader = this.loadingCtrl.create();
+    loader.present().then(() => {
+      this.stars = [];
+      this.storage
+        .get('STARS')
+        .then(res => {
+          res = res || []
+          this.starsLoaded = true;
+          this.numberOfStars = res.length;
+          if(!res.length) loader.dismiss();
 
-        res.forEach(element => {
-          this.drinkProvider
-            .getDrinkById(element)
-            .subscribe(res => this.stars.push(res))
-        });
-      })
+          res.forEach(element => {
+            this.drinkProvider
+              .getDrinkById(element)
+              .subscribe(res => {
+                if (!this.stars.length) loader.dismiss()
+                this.stars.push(res)
+              })
+          });
+        })
+    });
+
+
 
     if (this.platform.is('cordova')) {
       this.watchForShake();
