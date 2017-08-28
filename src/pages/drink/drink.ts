@@ -14,6 +14,7 @@ export class DrinkPage {
   drinkIngredients: any[] = [];
   isStarred: boolean = false;
   stars: any[] = [];
+  measurement: string = 'metric';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider, public storage: Storage) { }
 

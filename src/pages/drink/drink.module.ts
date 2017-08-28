@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { DrinkPage } from './drink';
 import { IonicImageLoader } from 'ionic-image-loader';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { IonicImageLoader } from 'ionic-image-loader';
   ],
   imports: [
     IonicPageModule.forChild(DrinkPage),
-    IonicImageLoader
+    IonicImageLoader,
+    PipesModule
   ],
   exports: [
     DrinkPage
