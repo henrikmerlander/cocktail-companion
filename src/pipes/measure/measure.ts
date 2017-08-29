@@ -6,18 +6,29 @@ import * as convert from 'convert-units';
 })
 export class MeasurePipe implements PipeTransform {
 
+  toImperialConvertTable = [
+    { fromMeasure: 'cl', from: 'cl', to: 'fl-oz', displayMeasure: 'fl oz' },
+    { fromMeasure: 'ml', from: 'ml', to: 'fl-oz', displayMeasure: 'fl oz' },
+    { fromMeasure: 'gr', from: 'g', to: 'oz', displayMeasure: 'oz' },
+    { fromMeasure: 'g', from: 'g', to: 'oz', displayMeasure: 'oz' }
+  ]
+
+  toMetricConvertTable = [
+    { fromMeasure: 'oz', from: 'fl-oz', to: 'cl', displayMeasure: 'cl' },
+    { fromMeasure: 'tsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'tblsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'qt', from: 'qt', to: 'l', displayMeasure: 'l' },
+    { fromMeasure: 'cup', from: 'cup', to: 'ml', displayMeasure: 'ml' }
+  ]
+
   transform(value: string, ...args) {
     if (args[0] === 'metric') {
       var split = value.toLowerCase().trim().split(' ');
       var measurement = split.pop();
 
       try {
-        switch (measurement) {
-          case 'oz':
-            return this.convert(split, 'fl-oz', 'cl') + 'cl';
-          default:
-            return value;
-        }
+        var convertObject = this.toMetricConvertTable.find(x => x.fromMeasure == measurement);
+        return this.convert(split, convertObject.from, convertObject.to) + ' ' + convertObject.displayMeasure;
       }
       catch (e) {
         return value;
@@ -28,12 +39,8 @@ export class MeasurePipe implements PipeTransform {
       var measurement = split.pop();
 
       try {
-        switch (measurement) {
-          case 'cl':
-            return this.convert(split, 'cl', 'fl-oz') + 'oz';
-          default:
-            return value;
-        }
+        var convertObject = this.toImperialConvertTable.find(x => x.fromMeasure === measurement);
+        return this.convert(split, convertObject.from, convertObject.to) + ' ' + convertObject.displayMeasure;
       }
       catch (e) {
         return value;
@@ -43,6 +50,6 @@ export class MeasurePipe implements PipeTransform {
   }
 
   convert(split, from, to) {
-    return Math.ceil(convert(eval(split.join('+'))).from(from).to(to))
+    return Math.round(convert(eval(split.join('+'))).from(from).to(to))
   }
 }
