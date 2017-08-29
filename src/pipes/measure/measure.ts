@@ -14,7 +14,23 @@ export class MeasurePipe implements PipeTransform {
       try {
         switch (measurement) {
           case 'oz':
-            return this.ozToCl(split) + 'cl';
+            return this.convert(split, 'fl-oz', 'cl') + 'cl';
+          default:
+            return value;
+        }
+      }
+      catch (e) {
+        return value;
+      }
+    }
+    else if (args[0] === 'imperial') {
+      var split = value.toLowerCase().trim().split(' ');
+      var measurement = split.pop();
+
+      try {
+        switch (measurement) {
+          case 'cl':
+            return this.convert(split, 'cl', 'fl-oz') + 'oz';
           default:
             return value;
         }
@@ -26,7 +42,7 @@ export class MeasurePipe implements PipeTransform {
     else return value;
   }
 
-  ozToCl(split) {
-    return Math.ceil(convert(eval(split.join('+'))).from('fl-oz').to('cl'))
+  convert(split, from, to) {
+    return Math.ceil(convert(eval(split.join('+'))).from(from).to(to))
   }
 }
