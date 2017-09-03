@@ -21,14 +21,22 @@ export class MeasurePipe implements PipeTransform {
     { fromMeasure: 'cup', from: 'cup', to: 'ml', displayMeasure: 'ml' }
   ]
 
+  availableMeasurements = this.toImperialConvertTable.concat(this.toMetricConvertTable).map(el => el.fromMeasure);
+
   transform(value: string, ...args) {
     try {
       let convertTable = args[0] === 'metric' ? this.toMetricConvertTable : this.toImperialConvertTable,
         split = value.toLowerCase().trim().split(' '),
         measurement = split.pop(),
-        convertObject = convertTable.find(x => x.fromMeasure === measurement);
+        extras = '';
 
-      return this.convert(split, convertObject.from, convertObject.to) + ' ' + convertObject.displayMeasure;
+      while (!this.availableMeasurements.some(val => val === measurement) && split.length) {
+        extras = extras + ' ' + measurement;
+        measurement = split.pop();
+      }
+      let convertObject = convertTable.find(x => x.fromMeasure === measurement);
+
+      return this.convert(split, convertObject.from, convertObject.to) + ' ' + convertObject.displayMeasure + extras;
     }
     catch (e) {
       return value;
