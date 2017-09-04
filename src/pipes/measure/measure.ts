@@ -10,7 +10,8 @@ export class MeasurePipe implements PipeTransform {
     { fromMeasure: 'cl', from: 'cl', to: 'fl-oz', displayMeasure: 'fl oz' },
     { fromMeasure: 'ml', from: 'ml', to: 'fl-oz', displayMeasure: 'fl oz' },
     { fromMeasure: 'gr', from: 'g', to: 'oz', displayMeasure: 'oz' },
-    { fromMeasure: 'g', from: 'g', to: 'oz', displayMeasure: 'oz' }
+    { fromMeasure: 'g', from: 'g', to: 'oz', displayMeasure: 'oz' },
+    { fromMeasure: 'l', from: 'l', to: 'fl-oz', displayMeasure: 'fl oz' }
   ]
 
   toMetricConvertTable = [
@@ -18,7 +19,10 @@ export class MeasurePipe implements PipeTransform {
     { fromMeasure: 'tsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
     { fromMeasure: 'tblsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
     { fromMeasure: 'qt', from: 'qt', to: 'l', displayMeasure: 'l' },
-    { fromMeasure: 'cup', from: 'cup', to: 'ml', displayMeasure: 'ml' }
+    { fromMeasure: 'cup', from: 'cup', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'cups', from: 'cup', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'pint', from: 'pnt', to: 'dl', displayMeasure: 'dl' },
+    { fromMeasure: 'pints', from: 'pnt', to: 'dl', displayMeasure: 'dl' }
   ]
 
   availableMeasurements = this.toImperialConvertTable.concat(this.toMetricConvertTable).map(el => el.fromMeasure);
