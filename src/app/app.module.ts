@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicImageLoader } from 'ionic-image-loader';
@@ -13,9 +13,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
 
+import { StartupService } from './startup.service';
+
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import { TabsPage } from '../pages/tabs/tabs';
+
+function startupServiceFactory(startupService: StartupService): Function {
+  return () => startupService.load();
+}
 
 @NgModule({
   declarations: [
@@ -39,9 +45,16 @@ import { TabsPage } from '../pages/tabs/tabs';
     SplashScreen,
     AppRate,
     DeviceMotion,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     DrinkProvider,
-    IngredientProvider
+    IngredientProvider,
+    StartupService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [StartupService],
+      multi: true
+    }
   ]
 })
-export class AppModule {}
+export class AppModule { }
