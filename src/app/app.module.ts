@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { StartupService } from './startup.service';
 
@@ -45,6 +46,7 @@ function startupServiceFactory(startupService: StartupService): Function {
     SplashScreen,
     AppRate,
     DeviceMotion,
+    InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DrinkProvider,
     IngredientProvider,
