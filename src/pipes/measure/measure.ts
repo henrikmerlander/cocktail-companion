@@ -48,6 +48,9 @@ export class MeasurePipe implements PipeTransform {
   }
 
   convert(split, from, to) {
+    split.forEach((element, index) => {
+      split[index] = element.split('-')[0];
+    });
     return Math.round(convert(eval(split.join('+'))).from(from).to(to))
   }
 }
