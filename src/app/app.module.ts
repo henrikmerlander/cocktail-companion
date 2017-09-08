@@ -20,7 +20,7 @@ import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import { TabsPage } from '../pages/tabs/tabs';
 
-function startupServiceFactory(startupService: StartupService): Function {
+export function startupServiceFactory(startupService: StartupService): Function {
   return () => startupService.load();
 }
 
