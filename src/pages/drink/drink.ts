@@ -62,6 +62,6 @@ export class DrinkPage {
   }
 
   loadDrinkInBrowser(drinkId: string) {
-    let browser = this.inAppBrowser.create('http://www.thecocktaildb.com/drink.php?c=' + drinkId, '_blank', 'location=no,zoom=no')
+    this.inAppBrowser.create('http://www.thecocktaildb.com/drink.php?c=' + drinkId, '_blank', 'location=no,zoom=no')
   }
 }
