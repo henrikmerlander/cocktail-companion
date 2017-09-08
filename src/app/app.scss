@@ -28,3 +28,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.badge-container {
+    padding: 10px;
+    position: absolute;
+
+    ion-badge {
+        margin-bottom: 5px;
+    }
+}
