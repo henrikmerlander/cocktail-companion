@@ -51,6 +51,6 @@ export class MeasurePipe implements PipeTransform {
     split.forEach((element, index) => {
       split[index] = element.split('-')[0];
     });
-    return Math.round(convert(eval(split.join('+'))).from(from).to(to))
+    return Math.max(Math.round(convert(eval(split.join('+'))).from(from).to(to)), 1);
   }
 }
