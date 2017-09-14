@@ -14,15 +14,9 @@ import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
-import { StartupService } from './startup.service';
-
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
 import { TabsPage } from '../pages/tabs/tabs';
-
-export function startupServiceFactory(startupService: StartupService): Function {
-  return () => startupService.load();
-}
 
 @NgModule({
   declarations: [
@@ -49,14 +43,7 @@ export function startupServiceFactory(startupService: StartupService): Function 
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DrinkProvider,
-    IngredientProvider,
-    StartupService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: startupServiceFactory,
-      deps: [StartupService],
-      multi: true
-    }
+    IngredientProvider
   ]
 })
 export class AppModule { }
