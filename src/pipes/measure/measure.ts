@@ -17,12 +17,14 @@ export class MeasurePipe implements PipeTransform {
   toMetricConvertTable = [
     { fromMeasure: 'oz', from: 'fl-oz', to: 'cl', displayMeasure: 'cl' },
     { fromMeasure: 'tsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
-    { fromMeasure: 'tblsp', from: 'tsp', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'tblsp', from: 'Tbs', to: 'ml', displayMeasure: 'ml' },
+    { fromMeasure: 'tbsp', from: 'Tbs', to: 'ml', displayMeasure: 'ml' },
     { fromMeasure: 'qt', from: 'qt', to: 'l', displayMeasure: 'l' },
     { fromMeasure: 'cup', from: 'cup', to: 'ml', displayMeasure: 'ml' },
     { fromMeasure: 'cups', from: 'cup', to: 'ml', displayMeasure: 'ml' },
     { fromMeasure: 'pint', from: 'pnt', to: 'dl', displayMeasure: 'dl' },
-    { fromMeasure: 'pints', from: 'pnt', to: 'dl', displayMeasure: 'dl' }
+    { fromMeasure: 'pints', from: 'pnt', to: 'dl', displayMeasure: 'dl' },
+    { fromMeasure: 'pnt', from: 'pnt', to: 'dl', displayMeasure: 'dl' }
   ]
 
   availableMeasurements = this.toImperialConvertTable.concat(this.toMetricConvertTable).map(el => el.fromMeasure);
