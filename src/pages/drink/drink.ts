@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @IonicPage()
 @Component({
@@ -17,7 +16,7 @@ export class DrinkPage {
   stars: any[] = [];
   measurement: string = 'metric';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider, public storage: Storage, public inAppBrowser: InAppBrowser) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider, public storage: Storage) { }
 
   ionViewDidLoad() {
     this.storage
@@ -59,9 +58,5 @@ export class DrinkPage {
 
     this.isStarred = !this.isStarred;
     this.storage.set('STARS', this.stars);
-  }
-
-  loadDrinkInBrowser(drinkId: string) {
-    this.inAppBrowser.create('http://www.thecocktaildb.com/drink.php?c=' + drinkId, '_blank', 'location=no,zoom=no')
   }
 }

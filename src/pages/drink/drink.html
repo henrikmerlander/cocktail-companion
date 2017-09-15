@@ -31,9 +31,4 @@
   </ion-list>
 
   <p padding-left padding-right>{{ drink.strInstructions }}</p>
-
-  <div text-center *ngIf="!drink.strDrinkThumb">
-    <p>Show off your delicious looking drink!</p>
-    <button (click)="loadDrinkInBrowser(drink.idDrink)" ion-button>Upload a picture</button>
-  </div>
 </ion-content>
