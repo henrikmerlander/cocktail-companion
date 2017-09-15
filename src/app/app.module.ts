@@ -15,12 +15,10 @@ import { DeviceMotion } from '@ionic-native/device-motion';
 
 import { DrinkProvider } from '../providers/drink/drink';
 import { IngredientProvider } from '../providers/ingredient/ingredient';
-import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -31,8 +29,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,

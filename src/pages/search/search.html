@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
     <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
   </ion-toolbar>
