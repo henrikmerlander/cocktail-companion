@@ -11,7 +11,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'HomePage';
-  pages: Array<{ title: string, component: any, icon: string }>;
+  pages: Array<{ title: string, component: any, icon: string, params?: any }>;
+  listPages: Array<{ title: string, component: any, icon: string, params?: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public imageLoaderConfig: ImageLoaderConfig) {
     this.initializeApp();
@@ -21,6 +22,11 @@ export class MyApp {
       { title: 'Search', component: 'SearchPage', icon: 'search' },
       { title: 'Info', component: 'InfoPage', icon: 'information-circle' }
     ];
+
+    this.listPages = [
+      { title: 'Alcoholic', component: 'DrinkListPage', icon: 'beer', params: { drinkType: 'alcoholic' } },
+      { title: 'Non-alcoholic', component: 'DrinkListPage', icon: 'happy', params: { drinkType: 'non-alcoholic' } }
+    ]
   }
 
   initializeApp() {
@@ -38,6 +44,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page.component, page.params);
   }
 }

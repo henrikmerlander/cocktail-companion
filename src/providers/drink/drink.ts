@@ -31,4 +31,16 @@ export class DrinkProvider {
       .get('https://drinks-api.herokuapp.com/api/drinks/random')
       .map(res => res.json().drinks[0])
   }
+
+  getAlcoholicDrinks() {
+    return this.http
+      .get('https://drinks-api.herokuapp.com/api/drinks/alcoholic')
+      .map(res => res.json().drinks)
+  }
+
+  getNonAlcoholicDrinks() {
+    return this.http
+      .get('https://drinks-api.herokuapp.com/api/drinks/non-alcoholic')
+      .map(res => res.json().drinks)
+  }
 }
