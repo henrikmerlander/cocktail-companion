@@ -1,8 +1,16 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button (click)="navigateToRandomDrink()">
+        <ion-icon name="shuffle"></ion-icon>
+      </button>
+    </ion-buttons>
+    
     <ion-title>Cocktail Companion</ion-title>
   </ion-navbar>
 </ion-header>

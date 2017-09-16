@@ -96,7 +96,9 @@ export class HomePage {
   }
 
   navigateToRandomDrink() {
-    this.shakeSubscription.unsubscribe();
+    if (this.platform.is('cordova')) {
+      this.shakeSubscription.unsubscribe();
+    }
     this.drinkProvider
       .getRandomDrink()
       .subscribe(res => {
