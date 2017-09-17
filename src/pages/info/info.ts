@@ -27,7 +27,6 @@ export class InfoPage {
   }
 
   rateApp() {
-    console.log(this.appRate.preferences)
     this.platform
       .ready()
       .then(() => this.appRate.promptForRating(true))

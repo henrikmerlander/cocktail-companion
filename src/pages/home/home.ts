@@ -102,7 +102,6 @@ export class HomePage {
     this.drinkProvider
       .getRandomDrink()
       .subscribe(res => {
-        console.log(res);
         this.navCtrl.push('DrinkPage', {
           drinkId: res.idDrink
         })
