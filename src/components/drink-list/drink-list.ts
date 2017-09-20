@@ -8,7 +8,13 @@ import { NavController } from 'ionic-angular';
 export class DrinkListComponent {
 
   @Input()
-  drinks: any[];
+  set drinks(drinks: any[]) {
+    this.allDrinks = drinks || [];
+    this.displayDrinks = this.allDrinks.slice(0, 10);    
+  }
+
+  allDrinks: any[];
+  displayDrinks: any[];
 
   constructor(public navCtrl: NavController) { }
 
@@ -16,5 +22,10 @@ export class DrinkListComponent {
     return {
       drinkId: drinkId
     }
+  }
+
+  showMoreDrinks(infinite) {
+    this.displayDrinks = this.displayDrinks.concat(this.allDrinks.slice(this.displayDrinks.length, this.displayDrinks.length + 10))
+    infinite.complete()
   }
 }

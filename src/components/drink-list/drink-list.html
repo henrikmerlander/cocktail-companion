@@ -1,5 +1,5 @@
 <ion-list>
-  <button navPush="DrinkPage" [navParams]="drinkParams(drink.idDrink)" ion-item *ngFor="let drink of drinks">
+  <button navPush="DrinkPage" [navParams]="drinkParams(drink.idDrink)" ion-item *ngFor="let drink of displayDrinks">
     <ion-thumbnail item-start>
       <img-loader [src]="drink.strDrinkThumb"></img-loader>
     </ion-thumbnail>
@@ -7,3 +7,7 @@
   </button>
   <ion-item-divider *ngIf="drinks && drinks.length >= 250">Showing max 250 drinks</ion-item-divider>
 </ion-list>
+
+<ion-infinite-scroll (ionInfinite)="showMoreDrinks($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
