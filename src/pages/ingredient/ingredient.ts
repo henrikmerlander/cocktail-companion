@@ -17,7 +17,7 @@ export class IngredientPage {
 
   ionViewDidLoad() {
     this.ingredientProvider
-      .getIngredientByName(this.navParams.get('ingredientName'))
+      .getIngredientByName(this.navParams.get('ingredientName') || 'rum')
       .subscribe(res => {
         this.ingredient = res
         this.drinkProvider
