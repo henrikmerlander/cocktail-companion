@@ -16,14 +16,14 @@
 </ion-header>
 
 <ion-content>
-  <div padding *ngIf="starsLoaded && !numberOfStars" class="center">
+  <div padding *ngIf="starsLoaded && !stars.length" class="center">
     <p text-center>
       Starred drinks will appear here. Looks like you haven't starred
       <ion-icon name="star"></ion-icon> any drinks yet.
       You can shake your device to show a random drink!
     </p>
   </div>
-  <div *ngIf="starsLoaded && !stars.length" class="center">
+  <div *ngIf="!starsLoaded" class="center">
     <ion-spinner></ion-spinner>
   </div>
   
