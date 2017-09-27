@@ -19,8 +19,7 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: 'HomePage', icon: 'home' },
-      { title: 'Search', component: 'SearchPage', icon: 'search' },
-      { title: 'Info', component: 'InfoPage', icon: 'information-circle' }
+      { title: 'Search', component: 'SearchPage', icon: 'search' }
     ];
 
     this.listPages = [
