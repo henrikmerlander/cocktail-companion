@@ -1,4 +1,4 @@
-import { Ingredient } from './ingredient';
+import { DrinkIngredient } from "./drinkIngredient";
 
 export class Drink {
     constructor(
@@ -9,7 +9,6 @@ export class Drink {
         public glass: string,
         public instructions: string,
         public thumbnail: string,
-        public ingredients: Ingredient[],
-        public measures: string[]
+        public ingredients: DrinkIngredient[]
     ) { }
 }
