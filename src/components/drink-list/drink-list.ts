@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, IterableDiffers } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Drink } from '../../models/drink';
 
@@ -9,18 +9,25 @@ import { Drink } from '../../models/drink';
 export class DrinkListComponent {
 
   @Input()
-  set drinks(drinks: Drink[]) {
-    this.allDrinks = drinks || [];
-    this.displayDrinks = this.allDrinks.slice(0, 10);
+  drinks: Drink[];
+
+  displayDrinks: Drink[];
+  iterableDiffer;
+
+  constructor(private iterableDiffers: IterableDiffers, public navCtrl: NavController) {
+    this.iterableDiffer = this.iterableDiffers.find([]).create(null);
   }
 
-  allDrinks: Drink[];
-  displayDrinks: Drink[];
-
-  constructor(public navCtrl: NavController) { }
+  ngDoCheck() {
+    let changes = this.iterableDiffer.diff(this.drinks);
+    if (changes) {
+      this.drinks = changes._collection;
+      this.displayDrinks = this.drinks.slice(0, 10);
+    }
+  }
 
   showMoreDrinks(infinite) {
-    this.displayDrinks = this.displayDrinks.concat(this.allDrinks.slice(this.displayDrinks.length, this.displayDrinks.length + 10))
+    this.displayDrinks = this.displayDrinks.concat(this.drinks.slice(this.displayDrinks.length, this.displayDrinks.length + 10))
     infinite.complete()
   }
 }
