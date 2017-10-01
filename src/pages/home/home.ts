@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
+import { Drink } from '../../models/drink';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ import { DrinkProvider } from '../../providers/drink/drink';
 })
 export class HomePage {
 
-  stars: any[] = [];
+  stars: Drink[] = [];
   starsLoaded: boolean = false;
 
   constructor(public navCtrl: NavController, public storage: Storage, public drinkProvider: DrinkProvider) { }
@@ -23,7 +24,6 @@ export class HomePage {
       .then(res => {
         res = res || []
         if (res.length == 0) this.starsLoaded = true;
-
         res.forEach(element => {
           this.drinkProvider
             .getDrinkById(element)
@@ -40,7 +40,7 @@ export class HomePage {
       .getRandomDrink()
       .subscribe(res => {
         this.navCtrl.push('DrinkPage', {
-          drinkId: res.idDrink
+          drinkId: res.id
         })
       })
   }
