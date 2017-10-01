@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
+import { Drink } from '../../models/drink';
 
 @IonicPage()
 @Component({
@@ -10,8 +11,7 @@ import { DrinkProvider } from '../../providers/drink/drink';
 })
 export class DrinkPage {
 
-  drink: any = {};
-  drinkIngredients: any[] = [];
+  drink: Drink = new Drink('', '', '', false, '', '', '', []);
   isStarred: boolean = false;
   stars: any[] = [];
   measurement: string = 'metric';
@@ -28,18 +28,7 @@ export class DrinkPage {
 
     this.drinkProvider
       .getDrinkById(this.navParams.get('drinkId') || '12091')
-      .subscribe(res => {
-        this.drink = res
-        for (var i = 1; i <= 15; i++) {
-          let ingredient = this.drink['strIngredient' + i];
-          if (!ingredient) break;
-
-          this.drinkIngredients.push({
-            name: ingredient,
-            measure: this.drink['strMeasure' + i]
-          })
-        }
-      })
+      .subscribe(res => this.drink = res)
   }
 
   goToIngredient(ingredientName) {
@@ -50,7 +39,7 @@ export class DrinkPage {
 
   toggleStarred(drinkId: string) {
     if (this.isStarred) {
-      this.stars.splice(this.stars.indexOf(this.drink.idDrink), 1)
+      this.stars.splice(this.stars.indexOf(this.drink.id), 1)
     }
     else {
       this.stars.push(drinkId)

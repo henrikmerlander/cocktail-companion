@@ -1,20 +1,20 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>{{ drink.strDrink }}</ion-title>
+    <ion-title>{{ drink.name }}</ion-title>
     <ion-buttons end>
-      <button (click)=toggleStarred(drink.idDrink) ion-button icon-only><ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon></button>
+      <button (click)=toggleStarred(drink.id) ion-button icon-only><ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div class="badge-container">
-      <ion-badge *ngIf="drink.strAlcoholic">{{ drink.strAlcoholic }}</ion-badge>
-      <ion-badge *ngIf="drink.strCategory">{{ drink.strCategory }}</ion-badge>
-      <ion-badge *ngIf="drink.strGlass">{{ drink.strGlass }}</ion-badge>
+      <ion-badge>{{ drink.isAlcoholic ? 'Alcoholic' : 'Non Alcoholic' }}</ion-badge>
+      <ion-badge *ngIf="drink.category">{{ drink.category }}</ion-badge>
+      <ion-badge *ngIf="drink.glass">{{ drink.glass }}</ion-badge>
   </div>
 
-  <img-loader *ngIf="drink.idDrink" class="main-image" [src]="drink.strDrinkThumb"></img-loader>
+  <img-loader class="main-image" [src]="drink.thumbnail"></img-loader>
   <ion-segment [(ngModel)]="measurement">
     <ion-segment-button value="metric">
       Metric
@@ -24,11 +24,11 @@
     </ion-segment-button>
   </ion-segment>
   <ion-list>
-    <button (click)="goToIngredient(ingredient.name)" ion-item *ngFor="let ingredient of drinkIngredients">
+    <button (click)="goToIngredient(ingredient.name)" ion-item *ngFor="let ingredient of drink.ingredients">
       {{ ingredient.name }}
-      <span item-end>{{ ingredient.measure | measure:measurement }}</span>
+      <span item-end>{{ ingredient.amount | measure:measurement }}</span>
     </button>
   </ion-list>
 
-  <p padding-left padding-right>{{ drink.strInstructions }}</p>
+  <p padding-left padding-right>{{ drink.instructions }}</p>
 </ion-content>
