@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Ingredient } from '../../models/ingredient';
 
 @Component({
   selector: 'ingredient-list',
@@ -8,13 +9,7 @@ import { NavController } from 'ionic-angular';
 export class IngredientListComponent {
 
   @Input()
-  ingredients: any[];
+  ingredients: Ingredient[];
 
   constructor(public navCtrl: NavController) { }
-
-  ingredientParams(ingredientName) {
-    return {
-      ingredientName: ingredientName
-    }
-  }
 }
