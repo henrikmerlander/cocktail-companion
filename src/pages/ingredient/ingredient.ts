@@ -3,6 +3,7 @@ import { IonicPage, NavParams } from 'ionic-angular';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
 import { DrinkProvider } from '../../providers/drink/drink';
 import { Ingredient } from '../../models/ingredient';
+import { Drink } from '../../models/drink';
 
 @IonicPage()
 @Component({
@@ -12,7 +13,7 @@ import { Ingredient } from '../../models/ingredient';
 export class IngredientPage {
 
   ingredient: Ingredient = new Ingredient('', '', '', '', '', '');
-  drinks: any[] = [];
+  drinks: Drink[] = [];
 
   constructor(public navParams: NavParams, public ingredientProvider: IngredientProvider, public drinkProvider: DrinkProvider) { }
 

@@ -13,7 +13,7 @@ export class DrinkPage {
 
   drink: Drink = new Drink('', '', '', false, '', '', '', []);
   isStarred: boolean = false;
-  stars: any[] = [];
+  stars: string[] = [];
   measurement: string = 'metric';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public drinkProvider: DrinkProvider, public storage: Storage) { }

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
+import { Ingredient } from '../../models/ingredient';
+import { Drink } from '../../models/drink';
 
 @IonicPage()
 @Component({
@@ -11,8 +13,8 @@ import { IngredientProvider } from '../../providers/ingredient/ingredient';
 export class SearchPage {
 
   searchMode: string = 'drink';
-  drinks: any[];
-  ingredients: any[];
+  drinks: Drink[];
+  ingredients: Ingredient[];
   isSearching: boolean = false;
 
   constructor(public drinkProvider: DrinkProvider, public ingredientProvider: IngredientProvider) { }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DrinkProvider } from '../../providers/drink/drink';
+import { Drink } from '../../models/drink';
 
 @IonicPage()
 @Component({
@@ -9,7 +10,7 @@ import { DrinkProvider } from '../../providers/drink/drink';
 })
 export class DrinkListPage {
 
-  drinks: any[];
+  drinks: Drink[];
   drinkType: string;
   title: string;
 
