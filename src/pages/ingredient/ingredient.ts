@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams } from 'ionic-angular';
 import { IngredientProvider } from '../../providers/ingredient/ingredient';
 import { DrinkProvider } from '../../providers/drink/drink';
+import { Ingredient } from '../../models/ingredient';
 
 @IonicPage()
 @Component({
@@ -10,7 +11,7 @@ import { DrinkProvider } from '../../providers/drink/drink';
 })
 export class IngredientPage {
 
-  ingredient: any = {};
+  ingredient: Ingredient = new Ingredient('', '', '', '', '', '');
   drinks: any[] = [];
 
   constructor(public navParams: NavParams, public ingredientProvider: IngredientProvider, public drinkProvider: DrinkProvider) { }
@@ -21,7 +22,7 @@ export class IngredientPage {
       .subscribe(res => {
         this.ingredient = res
         this.drinkProvider
-          .getDrinksByIngredientName(this.ingredient.strIngredient)
+          .getDrinksByIngredientName(this.ingredient.name)
           .subscribe(res => this.drinks = res)
       })
   }

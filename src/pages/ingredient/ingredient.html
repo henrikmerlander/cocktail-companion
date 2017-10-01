@@ -1,18 +1,18 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>{{ ingredient.strIngredient }}</ion-title>
+    <ion-title>{{ ingredient.name }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding-top>
   <div class="badge-container">
-    <ion-badge *ngIf="ingredient.strType">{{ ingredient.strType }}</ion-badge>
+    <ion-badge *ngIf="ingredient.type">{{ ingredient.type }}</ion-badge>
   </div>
 
-  <img-loader *ngIf="ingredient.strIngredient" class="main-image" src="{{ 'http://www.thecocktaildb.com/images/ingredients/' + ingredient.strIngredient + '-Medium.png' }}"></img-loader>
+  <img-loader class="main-image" [src]="ingredient.image"></img-loader>
 
-  <p padding-horizontal>{{ ingredient.strDescription }}</p>
+  <p padding-horizontal>{{ ingredient.description }}</p>
 
-  <h1 *ngIf="drinks.length" padding-horizontal>Drinks with {{ ingredient.strIngredient }}</h1>
+  <h1 *ngIf="drinks.length" padding-horizontal>Drinks with {{ ingredient.name }}</h1>
   <drink-list [drinks]="drinks"></drink-list>
 </ion-content>
