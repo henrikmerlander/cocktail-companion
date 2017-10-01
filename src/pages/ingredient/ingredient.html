@@ -9,7 +9,7 @@
     <ion-badge *ngIf="ingredient.type">{{ ingredient.type }}</ion-badge>
   </div>
 
-  <img-loader class="main-image" [src]="ingredient.image"></img-loader>
+  <img-loader *ngIf="ingredient.name" class="main-image" [src]="ingredient.image"></img-loader>
 
   <p padding-horizontal>{{ ingredient.description }}</p>
 
