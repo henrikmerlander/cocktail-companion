@@ -11,7 +11,7 @@ export class DrinkListComponent {
   @Input()
   set drinks(drinks: Drink[]) {
     this.allDrinks = drinks || [];
-    this.displayDrinks = this.allDrinks.slice(0, 10);    
+    this.displayDrinks = this.allDrinks.slice(0, 10);
   }
 
   allDrinks: Drink[];
