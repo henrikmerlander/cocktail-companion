@@ -1,9 +1,9 @@
 <ion-list>
-  <button navPush="DrinkPage" [navParams]="drinkParams(drink.idDrink)" ion-item *ngFor="let drink of displayDrinks">
+  <button navPush="DrinkPage" [navParams]="{ drinkId: drink.id }" ion-item *ngFor="let drink of displayDrinks">
     <ion-thumbnail item-start>
-      <img-loader [src]="drink.strDrinkThumb"></img-loader>
+      <img-loader [src]="drink.thumbnail"></img-loader>
     </ion-thumbnail>
-    {{ drink.strDrink }}
+    {{ drink.name }}
   </button>
   <ion-item-divider *ngIf="drinks && drinks.length >= 250">Showing max 250 drinks</ion-item-divider>
 </ion-list>
