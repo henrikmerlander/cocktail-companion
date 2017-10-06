@@ -23,8 +23,11 @@
       Imperial
     </ion-segment-button>
   </ion-segment>
-  <ion-list>
+  <ion-list no-lines>
     <button (click)="goToIngredient(ingredient.name)" ion-item *ngFor="let ingredient of drink.ingredients">
+      <ion-thumbnail item-left>
+        <img-loader [src]="ingredient.thumbnail"></img-loader>
+      </ion-thumbnail>
       {{ ingredient.name }}
       <span item-end>{{ ingredient.amount | measure:measurement }}</span>
     </button>

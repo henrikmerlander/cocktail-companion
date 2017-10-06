@@ -52,7 +52,7 @@ export class DrinkProvider {
     const ingredients: DrinkIngredient[] = [];
     for (let i = 1; i <= 15; i++) {
       if (!drink['strIngredient' + i]) break;
-      ingredients.push(new DrinkIngredient(drink['strIngredient' + i], drink['strMeasure' + i]));
+      ingredients.push(new DrinkIngredient(drink['strIngredient' + i], drink['strMeasure' + i], 'http://www.thecocktaildb.com/images/ingredients/' + drink['strIngredient' + i] + '-Small.png'));
     }
 
     return new Drink(

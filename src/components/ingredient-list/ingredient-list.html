@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list no-lines>
   <button navPush="IngredientPage" [navParams]="{ingredientName: ingredient.name}" ion-item *ngFor="let ingredient of ingredients">
       <ion-thumbnail item-start>
         <img-loader [src]="ingredient.thumbnail"></img-loader>
