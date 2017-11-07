@@ -3,11 +3,10 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar [hidden]="searchMode == 'ingredient'" (ionInput)="search($event)" placeholder="Margarita, White Russian..."></ion-searchbar>
-    <ion-searchbar [hidden]="searchMode == 'drink'" (ionInput)="search($event)" placeholder="Vodka, milk, orange juice..."></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="search(searchTerm)" placeholder="Search for drinks or ingredients"></ion-searchbar>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-segment color="primary" [(ngModel)]="searchMode">
+    <ion-segment (ionChange)="search(searchTerm)" color="primary" [(ngModel)]="searchMode">
       <ion-segment-button value="drink">
         Drinks
       </ion-segment-button>

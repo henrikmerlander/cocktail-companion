@@ -19,15 +19,13 @@ export class SearchPage {
 
   constructor(public drinkProvider: DrinkProvider, public ingredientProvider: IngredientProvider) { }
 
-  search(event) {
-    var query = event.target.value;
-
-    if (query) {
+  search(searchTerm) {
+    if (searchTerm) {
       this.isSearching = true;
 
       if (this.searchMode == 'drink') {
         this.drinkProvider
-          .getDrinksByName(query)
+          .getDrinksByName(searchTerm)
           .subscribe(res => {
             this.isSearching = false;
             this.drinks = res;
@@ -35,12 +33,16 @@ export class SearchPage {
       }
       else {
         this.ingredientProvider
-          .getIngredientsByName(query)
+          .getIngredientsByName(searchTerm)
           .subscribe(res => {
             this.isSearching = false;
             this.ingredients = res;
           })
       }
+    }
+    else {
+      this.drinks = [];
+      this.ingredients = [];
     }
   }
 }
