@@ -22,12 +22,12 @@ export class DrinkListComponent {
     let changes = this.iterableDiffer.diff(this.drinks);
     if (changes) {
       this.drinks = changes._collection;
-      this.displayDrinks = this.drinks.slice(0, 10);
+      this.displayDrinks = this.drinks.slice(0, 20);
     }
   }
 
   showMoreDrinks(infinite) {
-    this.displayDrinks = this.displayDrinks.concat(this.drinks.slice(this.displayDrinks.length, this.displayDrinks.length + 10))
+    this.displayDrinks = this.displayDrinks.concat(this.drinks.slice(this.displayDrinks.length, this.displayDrinks.length + 20))
     infinite.complete()
   }
 }
