@@ -10,7 +10,6 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AppRate } from '@ionic-native/app-rate';
 import { DeviceMotion } from '@ionic-native/device-motion';
 
 import { DrinkProvider } from '../providers/drink/drink';
@@ -34,7 +33,6 @@ import { IngredientProvider } from '../providers/ingredient/ingredient';
   providers: [
     StatusBar,
     SplashScreen,
-    AppRate,
     DeviceMotion,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DrinkProvider,
