@@ -21,7 +21,7 @@ export class DrinkListComponent {
   ngDoCheck() {
     let changes = this.iterableDiffer.diff(this.drinks);
     if (changes) {
-      this.drinks = changes._collection;
+      this.drinks = changes.collection;
       this.displayDrinks = this.drinks.slice(0, 20);
     }
   }
