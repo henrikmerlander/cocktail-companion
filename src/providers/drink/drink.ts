@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'RxJS';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators/map';
 import { Drink } from '../../models/drink';
 import { DrinkIngredient } from '../../models/drinkIngredient';
 
@@ -13,37 +13,37 @@ export class DrinkProvider {
   getDrinkById(drinkId: string): Observable<Drink> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/lookup?drinkId=' + drinkId)
-      .map(res => this.normalizeData(res.json().drinks[0] || {}))
+      .pipe(map(res => this.normalizeData(res.json().drinks[0] || {})))
   }
 
   getDrinksByIngredientName(ingredientName: string): Observable<Drink[]> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/filter?ingredientName=' + ingredientName)
-      .map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink)))
+      .pipe(map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink))))
   }
 
   getDrinksByName(drinkName: string): Observable<Drink[]> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/search?drinkName=' + drinkName)
-      .map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink)))
+      .pipe(map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink))))
   }
 
   getRandomDrink(): Observable<Drink> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/random')
-      .map(res => this.normalizeData(res.json().drinks[0] || {}))
+      .pipe(map(res => this.normalizeData(res.json().drinks[0] || {})))
   }
 
   getAlcoholicDrinks(): Observable<Drink[]> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/alcoholic')
-      .map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink)))
+      .pipe(map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink))))
   }
 
   getNonAlcoholicDrinks(): Observable<Drink[]> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/drinks/non-alcoholic')
-      .map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink)))
+      .pipe(map(res => (res.json().drinks || []).map(drink => this.normalizeData(drink))))
   }
 
   normalizeData(drink: any): Drink {
