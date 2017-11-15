@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'RxJS';
 import { map } from 'rxjs/operators/map';
 import { Ingredient } from '../../models/ingredient';
@@ -7,18 +7,18 @@ import { Ingredient } from '../../models/ingredient';
 @Injectable()
 export class IngredientProvider {
 
-  constructor(public http: Http) { }
+  constructor(public http: HttpClient) { }
 
   getIngredientByName(ingredientName: string): Observable<Ingredient> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/ingredients/search?ingredientName=' + ingredientName)
-      .pipe(map(res => this.normalizeData(res.json().ingredients[0] || {})))
+      .pipe(map(res => this.normalizeData(res['ingredients'][0] || {})))
   }
 
   getIngredientsByName(ingredientName: string): Observable<Ingredient[]> {
     return this.http
       .get('https://drinks-api.herokuapp.com/api/ingredients/search?ingredientName=' + ingredientName)
-      .pipe(map(res => (res.json().ingredients || []).map(ingredient => this.normalizeData(ingredient))))
+      .pipe(map(res => (res['ingredients'] || []).map(ingredient => this.normalizeData(ingredient))))
   }
 
   normalizeData(ingredient: any): Ingredient {
