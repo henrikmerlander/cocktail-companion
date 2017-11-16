@@ -10,7 +10,7 @@
         <ion-icon name="shuffle"></ion-icon>
       </button>
     </ion-buttons>
-    
+
     <ion-title>Cocktail Companion</ion-title>
   </ion-navbar>
 </ion-header>
@@ -25,6 +25,6 @@
   <div *ngIf="!starsLoaded" class="center">
     <ion-spinner></ion-spinner>
   </div>
-  
+
   <drink-list *ngIf="stars.length" [drinks]="stars"></drink-list>
 </ion-content>

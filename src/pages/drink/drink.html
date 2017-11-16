@@ -2,16 +2,18 @@
   <ion-navbar color="primary">
     <ion-title>{{ drink.name }}</ion-title>
     <ion-buttons end>
-      <button (click)=toggleStarred(drink.id) ion-button icon-only><ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon></button>
+      <button (click)=toggleStarred(drink.id) ion-button icon-only>
+        <ion-icon name="star{{ isStarred ? '' : '-outline'}}"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <div class="badge-container">
-      <ion-badge>{{ drink.isAlcoholic ? 'Alcoholic' : 'Non Alcoholic' }}</ion-badge>
-      <ion-badge *ngIf="drink.category">{{ drink.category }}</ion-badge>
-      <ion-badge *ngIf="drink.glass">{{ drink.glass }}</ion-badge>
+    <ion-badge>{{ drink.isAlcoholic ? 'Alcoholic' : 'Non Alcoholic' }}</ion-badge>
+    <ion-badge *ngIf="drink.category">{{ drink.category }}</ion-badge>
+    <ion-badge *ngIf="drink.glass">{{ drink.glass }}</ion-badge>
   </div>
 
   <img-loader *ngIf="drink.id" class="main-image" [src]="drink.thumbnail"></img-loader>
