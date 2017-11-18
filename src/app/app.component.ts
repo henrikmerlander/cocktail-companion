@@ -38,6 +38,7 @@ export class MyApp {
       this.imageLoaderConfig.setFallbackUrl('assets/img/notfound.png');
       this.imageLoaderConfig.useImageTag(true);
       this.imageLoaderConfig.enableSpinner(false);
+      this.imageLoaderConfig.enableFallbackAsPlaceholder(true);
     });
   }
 

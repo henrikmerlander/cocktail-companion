@@ -16,7 +16,7 @@
     <ion-badge *ngIf="drink.glass">{{ drink.glass }}</ion-badge>
   </div>
 
-  <img-loader *ngIf="drink.id" class="main-image" [src]="drink.thumbnail"></img-loader>
+  <img-loader class="main-image" [src]="drink.thumbnail"></img-loader>
   <ion-segment [(ngModel)]="measurement">
     <ion-segment-button value="metric">
       Metric
