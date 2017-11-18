@@ -11,7 +11,7 @@ export class DrinkListComponent {
   @Input()
   drinks: Drink[];
 
-  displayDrinks: Drink[];
+  displayDrinks: Drink[] = [];
   iterableDiffer;
 
   constructor(private iterableDiffers: IterableDiffers, public navCtrl: NavController) {
